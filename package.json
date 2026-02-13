@@ -1,0 +1,14 @@
+{
+  "name": "binho-gourmet-monorepo",
+  "private": true,
+  "scripts": {
+    "setup:frontend": "npm --prefix frontend install",
+    "setup:backend": "python -m pip install -r backend/requirements.txt",
+    "setup:dev": "npm run setup:frontend && npm run setup:backend",
+    "predev": "npm run setup:frontend",
+    "dev": "concurrently \"uvicorn app.main:app --reload --app-dir backend\" \"npm --prefix frontend start\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
